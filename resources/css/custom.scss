@@ -1,0 +1,66 @@
+.card-header{
+    color: goldenrod;
+    font-style: italic;
+    fieldset {
+        border: 1px solid hsl(39, 38%, 69%);
+        margin: 5px;
+        padding: 12px;
+        display: flex;
+      .block {
+          margin: 7px;
+      }
+
+        legend {
+            text-align: center;
+            color: hsl(39, 38%, 69%);
+            font-size: 12px;
+            display: inline-block;
+            padding: 5px;
+            width: auto;
+        }
+    }
+   
+}
+
+.list-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_content{
+        display: flex;
+        flex-direction: column;
+        small{
+            color: gray;
+            font-style: italic;
+            font-size: 70%;
+        }
+    }
+    &_buttons{
+        display: flex;
+    }
+    .btn{
+        margin: 3px;
+    }
+}
+
+.outfit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-size {
+        font-size: 20px;
+        letter-spacing: 1px;
+        padding: 15;
+        margin: 10px;
+    }
+    &-color {
+        width: 140px;
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        margin: 15px;
+        text-transform: uppercase;
+        align-items: center;
+        font-size: 20px;
+    }
+}
