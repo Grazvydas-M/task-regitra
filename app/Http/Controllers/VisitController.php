@@ -21,56 +21,12 @@ class VisitController extends Controller
         $this->visitService = $visitService;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(StoreVisitRequest $request, Service $service)
+    public function store(StoreVisitRequest $request, Service $service): RedirectResponse
     {
         $visit = $this->customerService->registerCustomer($service);
-//dd($visit);
+
         return redirect()->route('customers.show', ['uuid' => $visit->customer->uuid]);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Visit  $visit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Visit $visit)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Visit  $visit
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Visit $visit)
-    {
-        //
-    }
-
 
     public function update(UpdateVisitRequest $request, Visit $visit): RedirectResponse
     {
@@ -78,16 +34,5 @@ class VisitController extends Controller
         $this->visitService->changeVisitStatus($visit, $status);
 
         return redirect()->route('dashboard');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Visit  $visit
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Visit $visit)
-    {
-        //
     }
 }

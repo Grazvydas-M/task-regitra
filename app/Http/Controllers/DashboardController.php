@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Services\VisitService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class DashboardController
 {
@@ -15,7 +16,7 @@ class DashboardController
         $this->visitService = $visitService;
     }
 
-    public function index()
+    public function index(): View
     {
         /** @var User $user */
         $user = Auth::user();
@@ -26,7 +27,7 @@ class DashboardController
         return view('dashboard',[ 'visits' => $visits, 'startedVisit' => $startedVisit]);
     }
 
-    public function departmentVisitsList()
+    public function departmentVisitsList(): View
     {
         $activeVisits = $this->visitService->getVisitsByStatus('STARTED');
         $waitingVisits = $this->visitService->getVisitsByStatus('NOT_STARTED');
